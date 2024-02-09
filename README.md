@@ -9,6 +9,7 @@ This API allows you to retrieve information about GitHub repositories based on t
 To get information about GitHub repositories for a specific user, send a GET request to the following endpoint wiht `username` as param:
 
 `GET /repositories?username={username}`
+`Port: 8080`
 
 
 Include the header `Accept: application/json` in your request to receive a JSON response.

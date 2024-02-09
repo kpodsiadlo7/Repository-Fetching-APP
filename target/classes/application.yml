@@ -1,2 +1,4 @@
 github:
   url: 'https://api.github.com/'
+server:
+  port: 9090
