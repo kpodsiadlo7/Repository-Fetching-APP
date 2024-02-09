@@ -27,13 +27,13 @@ The API will respond with a JSON object containing the following information for
 ### Handling Non-existing Users
 
 If the provided GitHub user does not exist, the API will return a 404 response in the following format:
-
-```json
+```
 {
-    "status": ${responseCode},
-    "message": ${whyHasItHappened}
+"status": ${responseCode},
+"message": ${whyHasItHappened}
 }
 ```
+
 #
 
 This project is built using Spring Boot framework 3 and Java 21.
