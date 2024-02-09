@@ -10,12 +10,11 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 public class GlobalExceptionHandler {
 
     @ExceptionHandler(FeignException.class)
-    public ResponseEntity<String> handleFeignExceptions(FeignException ex) {
-        String response = "{\"status\": " + ex.status() + ", \"message\": " + ex.getMessage() + "}";
+    public ResponseEntity<ErrorResponse> handleFeignExceptions(FeignException ex) {
         if (ex.status() == 404) {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(response);
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(new ErrorResponse(ex.status(), ex.getMessage()));
         } else {
-            return ResponseEntity.status(ex.status()).body(response);
+            return ResponseEntity.status(ex.status()).body(new ErrorResponse(ex.status(), ex.getMessage()));
         }
     }
 }
