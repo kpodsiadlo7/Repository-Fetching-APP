@@ -12,6 +12,7 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 class BranchMapper {
     private final CommitMapper commitMapper;
+
     List<Branch> fromDtoList(final List<BranchDto> branchDto) {
         return branchDto.stream()
                 .map(this::fromDto)

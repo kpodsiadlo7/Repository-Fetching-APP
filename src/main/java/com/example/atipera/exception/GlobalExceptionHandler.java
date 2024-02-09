@@ -11,7 +11,7 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(FeignException.class)
     public ResponseEntity<String> handleFeignExceptions(FeignException ex) {
-        String response = "{\"status\": "+ ex.status() +", \"message\": "+ ex.getMessage() +"}";
+        String response = "{\"status\": " + ex.status() + ", \"message\": " + ex.getMessage() + "}";
         if (ex.status() == 404) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(response);
         } else {

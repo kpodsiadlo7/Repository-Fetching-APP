@@ -20,7 +20,7 @@ public class RepoService {
         repoInfoList.forEach(
                 repo -> repo.setBranch(
                         branchMapper.fromDtoList
-                                (githubClient.getBranchByUserNameAndRepoName(username,repo.getName())))
+                                (githubClient.getBranchByUserNameAndRepoName(username, repo.getName())))
         );
         return repoInfoMapper.toDtoList(repoInfoList);
     }

@@ -13,11 +13,10 @@ import java.util.List;
 @RestController
 @RequiredArgsConstructor
 public class Controller {
-
     private final RepoService repoService;
 
     @GetMapping("/repositories")
-    ResponseEntity<List<RepoInfoDto>> getAllReposByUsername(@RequestParam String username){
+    ResponseEntity<List<RepoInfoDto>> getAllReposByUsername(@RequestParam String username) {
         return ResponseEntity.ok(repoService.getRepoInfoByName(username));
     }
 }

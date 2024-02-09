@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
 
-@FeignClient(value = "Github",url = "${github.url}")
+@FeignClient(value = "Github", url = "${github.url}")
 public interface GithubClient {
     @GetMapping("users/{username}/repos")
     List<RepoInfoDto> getRepoNames(@PathVariable final String username);

@@ -1,13 +1,14 @@
 package com.example.atipera.model;
 
-import lombok.*;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.util.List;
 
-@Data
+@Setter
+@Getter
 @Builder
-@NoArgsConstructor
-@AllArgsConstructor
 public class RepoInfo {
     private String name;
     private Owner owner;
