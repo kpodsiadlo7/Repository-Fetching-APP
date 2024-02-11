@@ -1,7 +1,7 @@
 package com.example.atipera.adapter;
 
 import com.example.atipera.dto.OwnerDto;
-import com.example.atipera.exception.ErrorState;
+import com.example.atipera.exception.enumes.ErrorState;
 import com.example.atipera.exception.IncorrectOwnerException;
 import com.example.atipera.model.Owner;
 import org.springframework.stereotype.Service;

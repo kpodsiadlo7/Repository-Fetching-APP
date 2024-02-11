@@ -4,7 +4,7 @@ import com.example.atipera.adapter.web.GithubClient;
 import com.example.atipera.domain.Provider;
 import com.example.atipera.dto.BranchDto;
 import com.example.atipera.dto.RepoInfoDto;
-import com.example.atipera.exception.ErrorState;
+import com.example.atipera.exception.enumes.ErrorState;
 import com.example.atipera.exception.IncorrectBranchException;
 import com.example.atipera.exception.IncorrectRepoInfoException;
 import com.example.atipera.model.Branch;

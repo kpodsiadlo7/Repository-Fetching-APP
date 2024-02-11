@@ -1,7 +1,7 @@
 package com.example.atipera.adapter;
 
 import com.example.atipera.dto.CommitDto;
-import com.example.atipera.exception.ErrorState;
+import com.example.atipera.exception.enumes.ErrorState;
 import com.example.atipera.exception.IncorrectCommitException;
 import com.example.atipera.model.Commit;
 import org.springframework.stereotype.Service;

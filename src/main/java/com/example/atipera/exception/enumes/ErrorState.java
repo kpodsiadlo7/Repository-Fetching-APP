@@ -1,4 +1,4 @@
-package com.example.atipera.exception;
+package com.example.atipera.exception.enumes;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
