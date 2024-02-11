@@ -1,6 +1,7 @@
 package com.example.atipera.adapter;
 
 import com.example.atipera.dto.CommitDto;
+import com.example.atipera.exception.IncorrectCommitException;
 import com.example.atipera.model.Commit;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
@@ -34,5 +35,12 @@ public class CommitMapperTestSuite {
         CommitDto commitDto = commitMapper.toDto(commit);
         //then
         Assertions.assertEquals("testSha", commitDto.getSha());
+    }
+
+    @Test
+    @DisplayName("CommitMapper - exception")
+    void shouldThrowExceptionWhenCommitIsNull(){
+        //when & then
+        Assertions.assertThrows(IncorrectCommitException.class, () -> commitMapper.fromDto(null));
     }
 }
