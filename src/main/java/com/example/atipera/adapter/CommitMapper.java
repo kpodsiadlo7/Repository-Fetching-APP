@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 @Service
 class CommitMapper {
     Commit fromDto(final CommitDto commitDto) {
-        if (commitDto.getSha() == null) throw new IncorrectCommitException(ErrorState.INVALID_COMMIT_DTO);
+        if (commitDto == null || commitDto.getSha() == null) throw new IncorrectCommitException(ErrorState.INVALID_COMMIT_DTO);
         return Commit.builder()
                 .sha(commitDto.getSha()).build();
     }
