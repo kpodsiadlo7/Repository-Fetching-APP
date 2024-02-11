@@ -1,4 +1,4 @@
-package com.example.atipera.adapter;
+package com.example.atipera.adapter.mapper;
 
 import com.example.atipera.dto.CommitDto;
 import com.example.atipera.exception.enumes.ErrorState;

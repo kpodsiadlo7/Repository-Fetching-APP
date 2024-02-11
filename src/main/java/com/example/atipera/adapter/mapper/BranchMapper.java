@@ -1,4 +1,4 @@
-package com.example.atipera.adapter;
+package com.example.atipera.adapter.mapper;
 
 import com.example.atipera.dto.BranchDto;
 import com.example.atipera.model.Branch;
@@ -10,10 +10,10 @@ import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
-class BranchMapper {
+public class BranchMapper {
     private final CommitMapper commitMapper;
 
-    List<Branch> fromDtoList(final List<BranchDto> branchDto) {
+    public List<Branch> fromDtoList(final List<BranchDto> branchDto) {
         return branchDto.stream()
                 .map(this::fromDto)
                 .collect(Collectors.toList());

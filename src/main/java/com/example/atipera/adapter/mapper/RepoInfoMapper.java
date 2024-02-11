@@ -1,4 +1,4 @@
-package com.example.atipera.adapter;
+package com.example.atipera.adapter.mapper;
 
 import com.example.atipera.dto.RepoInfoDto;
 import com.example.atipera.model.RepoInfo;
@@ -16,7 +16,7 @@ public class RepoInfoMapper {
     private final OwnerMapper ownerMapper;
     private final BranchMapper branchMapper;
 
-    List<RepoInfo> fromDtoList(final List<RepoInfoDto> repoNames) {
+    public List<RepoInfo> fromDtoList(final List<RepoInfoDto> repoNames) {
         return repoNames.stream()
                 .map(this::fromDto)
                 .collect(Collectors.toList());

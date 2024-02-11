@@ -1,12 +1,14 @@
-package com.example.atipera.adapter;
+package com.example.atipera.adapter.impl;
 
+import com.example.atipera.adapter.mapper.BranchMapper;
+import com.example.atipera.adapter.mapper.RepoInfoMapper;
 import com.example.atipera.adapter.web.GithubClient;
 import com.example.atipera.domain.Provider;
 import com.example.atipera.dto.BranchDto;
 import com.example.atipera.dto.RepoInfoDto;
-import com.example.atipera.exception.enumes.ErrorState;
 import com.example.atipera.exception.IncorrectBranchException;
 import com.example.atipera.exception.IncorrectRepoInfoException;
+import com.example.atipera.exception.enumes.ErrorState;
 import com.example.atipera.model.Branch;
 import com.example.atipera.model.RepoInfo;
 import lombok.RequiredArgsConstructor;

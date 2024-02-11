@@ -1,5 +1,6 @@
-package com.example.atipera.adapter;
+package com.example.atipera.adapter.mapper;
 
+import com.example.atipera.adapter.mapper.OwnerMapper;
 import com.example.atipera.dto.OwnerDto;
 import com.example.atipera.exception.IncorrectOwnerException;
 import com.example.atipera.model.Owner;

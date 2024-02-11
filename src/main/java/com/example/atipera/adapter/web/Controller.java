@@ -1,6 +1,6 @@
 package com.example.atipera.adapter.web;
 
-import com.example.atipera.adapter.RepoInfoMapper;
+import com.example.atipera.adapter.mapper.RepoInfoMapper;
 import com.example.atipera.domain.RepoService;
 import com.example.atipera.dto.RepoInfoDto;
 import lombok.RequiredArgsConstructor;
