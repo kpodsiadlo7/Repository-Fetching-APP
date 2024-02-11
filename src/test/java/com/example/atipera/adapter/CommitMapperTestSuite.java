@@ -23,6 +23,7 @@ public class CommitMapperTestSuite {
         //when
         Commit commit = commitMapper.fromDto(commitDto);
         //then
+        Assertions.assertNotNull(commit);
         Assertions.assertEquals("testSha", commit.getSha());
     }
 
@@ -34,6 +35,7 @@ public class CommitMapperTestSuite {
         //when
         CommitDto commitDto = commitMapper.toDto(commit);
         //then
+        Assertions.assertNotNull(commitDto);
         Assertions.assertEquals("testSha", commitDto.getSha());
     }
 

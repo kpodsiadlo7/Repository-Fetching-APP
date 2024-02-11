@@ -8,10 +8,10 @@ import org.springframework.stereotype.Service;
 
 @Service
 class OwnerMapper {
-    Owner fromDto(final OwnerDto owner) {
-        if (owner.getLogin() == null) throw new IncorrectOwnerException(ErrorState.INVALID_OWNER_DTO);
+    Owner fromDto(final OwnerDto ownerDto) {
+        if (ownerDto == null || ownerDto.getLogin() == null) throw new IncorrectOwnerException(ErrorState.INVALID_OWNER_DTO);
         return Owner.builder()
-                .login(owner.getLogin()).build();
+                .login(ownerDto.getLogin()).build();
     }
 
     OwnerDto toDto(final Owner owner) {
