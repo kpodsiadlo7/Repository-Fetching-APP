@@ -1,4 +1,4 @@
-package com.example.atipera.web;
+package com.example.atipera.adapter.web;
 
 import com.example.atipera.dto.BranchDto;
 import com.example.atipera.dto.RepoInfoDto;

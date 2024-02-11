@@ -1,4 +1,4 @@
-package com.example.atipera.domain;
+package com.example.atipera.adapter;
 
 import com.example.atipera.dto.BranchDto;
 import com.example.atipera.model.Branch;

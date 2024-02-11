@@ -1,4 +1,4 @@
-package com.example.atipera.domain;
+package com.example.atipera.adapter;
 
 import com.example.atipera.dto.RepoInfoDto;
 import com.example.atipera.model.RepoInfo;
@@ -11,7 +11,7 @@ import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
-class RepoInfoMapper {
+public class RepoInfoMapper {
 
     private final OwnerMapper ownerMapper;
     private final BranchMapper branchMapper;
@@ -29,7 +29,7 @@ class RepoInfoMapper {
                 .branch(new ArrayList<>()).build();
     }
 
-    List<RepoInfoDto> toDtoList(final List<RepoInfo> repoInfoList) {
+    public List<RepoInfoDto> toDtoList(final List<RepoInfo> repoInfoList) {
         return repoInfoList.stream()
                 .map(this::toDto)
                 .collect(Collectors.toList());

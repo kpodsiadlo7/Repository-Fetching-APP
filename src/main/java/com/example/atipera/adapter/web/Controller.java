@@ -1,5 +1,6 @@
-package com.example.atipera.web;
+package com.example.atipera.adapter.web;
 
+import com.example.atipera.adapter.RepoInfoMapper;
 import com.example.atipera.domain.RepoService;
 import com.example.atipera.dto.RepoInfoDto;
 import lombok.RequiredArgsConstructor;
@@ -14,9 +15,10 @@ import java.util.List;
 @RequiredArgsConstructor
 public class Controller {
     private final RepoService repoService;
+    private final RepoInfoMapper repoInfoMapper;
 
     @GetMapping("/repositories")
     ResponseEntity<List<RepoInfoDto>> getAllReposByUsername(@RequestParam String username) {
-        return ResponseEntity.ok(repoService.getRepoInfoByName(username));
+        return ResponseEntity.ok(repoInfoMapper.toDtoList(repoService.getRepoInfoByName(username)));
     }
 }
