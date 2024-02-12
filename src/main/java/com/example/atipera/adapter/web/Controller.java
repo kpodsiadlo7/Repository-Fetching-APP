@@ -1,8 +1,8 @@
 package com.example.atipera.adapter.web;
 
-import com.example.atipera.adapter.mapper.RepoInfoMapper;
 import com.example.atipera.domain.RepoService;
-import com.example.atipera.dto.RepoInfoDto;
+import com.example.atipera.model.RecordRepoInfo;
+import com.example.atipera.model.RecordRepositories;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,10 +15,9 @@ import java.util.List;
 @RequiredArgsConstructor
 public class Controller {
     private final RepoService repoService;
-    private final RepoInfoMapper repoInfoMapper;
 
     @GetMapping("/repositories")
-    ResponseEntity<List<RepoInfoDto>> getAllReposByUsername(@RequestParam String username) {
-        return ResponseEntity.ok(repoInfoMapper.toDtoList(repoService.getRepoInfoByName(username)));
+    ResponseEntity<List<RecordRepoInfo>> getAllReposByUsername(@RequestParam String username) {
+        return ResponseEntity.ok(repoService.getRepoInfoByName(username));
     }
 }

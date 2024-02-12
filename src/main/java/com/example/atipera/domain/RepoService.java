@@ -2,7 +2,8 @@ package com.example.atipera.domain;
 
 import com.example.atipera.exception.IncorrectRepoInfoException;
 import com.example.atipera.exception.enumes.ErrorState;
-import com.example.atipera.model.RepoInfo;
+import com.example.atipera.model.RecordRepoInfo;
+import com.example.atipera.model.RecordRepositories;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -13,16 +14,14 @@ import java.util.List;
 public class RepoService {
     private final Provider provider;
 
-    public List<RepoInfo> getRepoInfoByName(final String username) {
+    public List<RecordRepoInfo> getRepoInfoByName(final String username) {
         validateUsername(username);
 
         // getting repository - without branches
-        List<RepoInfo> repoInfoList = getUserRepo(username);
+        List<RecordRepositories> repoInfoList = getUserRepo(username);
 
         // collecting all branches based on username and repository name
-        populateRepoInfoListWithBranches(username, repoInfoList);
-
-        return repoInfoList;
+        return populateRepoInfoListWithBranches(username, repoInfoList);
     }
 
     private static void validateUsername(String username) {
@@ -30,17 +29,17 @@ public class RepoService {
             throw new IllegalArgumentException("username must be not null and empty");
     }
 
-    private List<RepoInfo> getUserRepo(final String username) {
-        List<RepoInfo> repoInfoList = provider.getRepoByUsername(username);
+    private List<RecordRepositories> getUserRepo(final String username) {
+        List<RecordRepositories> repoInfoList = provider.getRepoByUsername(username);
         if (repoInfoList == null || repoInfoList.isEmpty())
             throw new IncorrectRepoInfoException(ErrorState.INTERNAL_SERVER_ERROR);
         return repoInfoList;
     }
 
-    private void populateRepoInfoListWithBranches(final String username, List<RepoInfo> repoInfoList) {
-        for (var repo : repoInfoList) {
-            if (repo.getName() == null) throw new IncorrectRepoInfoException(ErrorState.INTERNAL_SERVER_ERROR);
-            repo.setBranch(provider.getBranchByUserNameAndRepoName(username, repo.getName()));
-        }
+    private List<RecordRepoInfo> populateRepoInfoListWithBranches(final String username, List<RecordRepositories> repoInfoList) {
+        return repoInfoList.stream().peek(repo -> {
+                    if (repo.name() == null) throw new IncorrectRepoInfoException(ErrorState.INTERNAL_SERVER_ERROR);
+                }).map(repo -> new RecordRepoInfo(repo.name(), repo.owner(), provider.getBranchByUserNameAndRepoName(username, repo.name())))
+                .toList();
     }
 }
